@@ -1,13 +1,23 @@
 <h1>Questions</h1>
 
-<ul>
-  <% @questions.each do |question| %>
-  <li><%= question.text %></li>
-    <p id="add-answers"><%= link_to "Add Answers", new_question_answer_path(question) %></p>
-    <% question.answers.order('id').each do |answer| %>
-      <p><%= answer.answer %> <%= button_to "Vote", question_answer_path(question, answer, :upVoteAction => 'upvote'), :method => 'patch' %>| Tally: <%= answer.vote %><p>
-    <% end %>
-  <% end %>
-</ul>
+<div class="container">
+<% @questions.each do |question| %>
+  <div class= "panel panel-info">
+
+  <div class="panel panel-title"><%= question.text %></div>
+    <div class="panel-body">
+      <div class='row'>
+          <p id="add-answers"><%= link_to "Add Answers", new_question_answer_path(question) %></p>
+          <% question.answers.order('id').each do |answer| %>
+          <div class='col-xs-6'>
+            <p><%= answer.answer %> <%= button_to "Vote", question_answer_path(question, answer, :upVoteAction => 'upvote'), :method => 'patch' %> Tally: <%= answer.vote %><p>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 
 <%= link_to "New Question", new_question_path %>
+</div>
