@@ -3,8 +3,8 @@
 <ul>
   <% @questions.each do |question| %>
   <li><%= question.text %></li>
-    <% question.answers.each do |answer| %>
-      <p><%= answer.answer %> | Tally: <%= answer.vote %><p>
+    <% question.answers.order('id').each do |answer| %>
+      <p><%= answer.answer %> <%= button_to "Vote", question_answer_path(question, answer, :upVoteAction => 'upvote'), :method => 'patch' %>| Tally: <%= answer.vote %><p>
     <% end %>
   <% end %>
 </ul>
