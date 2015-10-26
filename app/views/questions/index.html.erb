@@ -3,5 +3,8 @@
 <ul>
   <% @questions.each do |question| %>
   <li><%= question.text %></li>
+    <% question.answers.each do |answer| %>
+      <p><%= answer.answer %> | Tally: <%= answer.vote %><p>
+    <% end %>
   <% end %>
 </ul>
