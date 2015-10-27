@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
     if @answer.save
       respond_to do |format|
         format.html {redirect_to root_path}
-        format.js 
+        format.js
       end
     else
       render :new

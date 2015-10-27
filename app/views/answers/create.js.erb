@@ -1,3 +1,3 @@
 $('#new_answer').remove();
-$('#new-answer-link').show();
-$('#answers-container').append('<%= j render @answer, question: @question %>');
+$('#question_<%= @question.id %>').append('<%= j render(@answer) %>');
+$('#question_<%= @question.id %> > #new-answer-link').show();

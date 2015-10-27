@@ -5,11 +5,14 @@
 
   <div class="panel-body">
     <div class='row'>
-      <p id="add-answers"><%= link_to "Add Answers", new_question_answer_path(question), remote: true, id: "new-answer-link" %></p>
       <div id="answers-container">
-        <% question.answers.order('id').each do |answer| %>
-          <%= render 'answers/answer', question: question, answer: answer %>
-        <% end %>
+        <p id="add-answers">
+        <div id="question_<%= question.id%>">
+          <%= link_to "Add Answers", new_question_answer_path(question), remote: true, id: "new-answer-link" %></p>
+          <% question.answers.order('id').each do |answer| %>
+            <%= render 'answers/answer', question: question, answer: answer %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
