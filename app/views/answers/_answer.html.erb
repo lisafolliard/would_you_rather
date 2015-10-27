@@ -1,0 +1,3 @@
+  <div class='col-xs-6'>
+    <p><%= answer.answer %> <%= button_to "Vote", question_answer_path(question, answer, :upVoteAction => 'upvote'), :method => 'patch' %> Tally: <%= answer.vote %><p>
+  </div>

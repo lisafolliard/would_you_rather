@@ -24,7 +24,10 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.js 
+      end
     else
       render :new
     end
